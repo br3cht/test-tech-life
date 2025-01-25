@@ -17,10 +17,7 @@ class RastreamentoRepository
     {
 
         if(!$this->database->connect()){
-            return json_encode(array(
-                'status' => 'failure',
-                'message' => 'Erro ao conectar ao banco'
-            ));
+            return null;
         }
 
         $data = $this->database->sqlQueryArray(
