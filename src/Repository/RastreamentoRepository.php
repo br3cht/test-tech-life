@@ -22,14 +22,8 @@ class RastreamentoRepository
 
         $data = $this->database->sqlQueryArray(
             "SELECT
-                r.placa_veiculo
-                r.nome_funcionario
-                r.data_ocorrencia
-                r.velcidade_maxima
-                r.velocidade_registrada
-                r.latitude
-                r.longitude
-            FROM RASTREAMENTOS.r
+             *
+            FROM rastreamentos
             "
         );
 
