@@ -15,9 +15,9 @@ class Database
 
     function __construct()
     {
-        $this->ip = 'localhost';
-        $this->user = 'avaliacao';
-        $this->password = 'root';
+        $this->ip = 'db';
+        $this->user = 'root';
+        $this->password = null;
         $this->database = 'life';
     }
 
