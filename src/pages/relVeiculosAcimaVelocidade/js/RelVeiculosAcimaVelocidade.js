@@ -11,6 +11,22 @@ Cmp.RelVeiculosAcimaVelocidade = function() {
                 width: '200px'
             });
 
+            Cmp.createInput({
+                id: 'inputFuncionario',
+                renderTo: '#divInputFuncionario',
+                label: 'Nome Funcionario',
+                width: '200px'
+            });
+
+            Cmp.createInputInterval({
+                id: 'inputIntervalo',
+                idDateStart:'inputInitialInterval',
+                idDateEnd:'inputEndInterval',
+                renderTo: '#divInputIntervalo',
+                label: 'Data da Ocorrencia',
+                width: '200px'
+            })
+
             Cmp.createButton({
                 id: 'btnBuscar',
                 renderTo: '#divBtnConsultar',
@@ -62,11 +78,14 @@ Cmp.RelVeiculosAcimaVelocidade = function() {
 
         buscar: function() {
             Cmp.showLoading();
-
+            console.log(Cmp)
             Cmp.request({
                 url: '/rastreamento',
                 params: {
-                    placa: Cmp.get('inputPlaca').getValue()
+                    placa: Cmp.get('inputPlaca').getValue(),
+                    data_inicial: Cmp.get('inputIntervalo').getValueInitial(),
+                    data_final: Cmp.get('inputIntervalo').getValueEnd(),
+                    funcionario: Cmp.get('inputFuncionario').getValue()
                 },
                 success: function(res) {
                     Cmp.hideLoading();

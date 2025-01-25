@@ -1,12 +1,23 @@
 <div class="row">
     <div class="col-12">
         <div class="jumbotron">
-            <div id="divInputPlaca"></div>
-            <div id="divBtnConsultar"></div>
+            <div class='container'>
+                <div class="row">
+                    <div class="col-sm">
+                        <div id="divInputPlaca"></div>
+                    </div>
+                    <div class="col-sm">
+                        <div id="divInputFuncionario"></div>
+                    </div>
+                    <div class="col-sm">
+                        <div id="divInputIntervalo"></div>
+                    </div>
+                </div>
+                <div id="divBtnConsultar"></div>
+            </div>
         </div>
-
-        <div id="divCmpGridVeiculo"></div>
     </div>
+    <div id="divCmpGridVeiculo"></div>
 </div>
 
 <style type="text/css">

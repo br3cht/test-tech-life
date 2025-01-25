@@ -9,7 +9,7 @@ var Cmp = {
         return myCmp != undefined ? myCmp.cmp : null;
     },
 
-    request: function (config) {
+    request: function(config) {
         if (config.url == undefined && config.url == '') {
             if (typeof config.failure == 'function') {
                 config.failure('Param url required');
@@ -23,11 +23,11 @@ var Cmp = {
             type: 'POST',
             url: config.url,
             data: params
-        }).then(function (res) {
+        }).then(function(res) {
             var response = null;
             try {
                 response = JSON.parse(res);
-            } catch(e) {
+            } catch (e) {
                 response = res;
             }
 
@@ -35,14 +35,14 @@ var Cmp = {
                 config.success(response);
             }
 
-        }, function (e) {
+        }, function(e) {
             if (typeof config.failure == 'function') {
                 config.failure(e);
             }
         });
     },
 
-    button: function (config) {
+    button: function(config) {
         if (config.id != undefined) {
             Cmp.componentList.push({
                 id: config.id,
@@ -65,8 +65,51 @@ var Cmp = {
             $(config.renderTo).append(btn);
         }
 
-        this.destroy = function () {
+        this.destroy = function() {
             btn.remove();
+        }
+    },
+
+    inputIntervalDate: function(config) {
+        if (config.id == undefined || config.id == '') {
+            return;
+        }
+
+        Cmp.componentList.push({
+            id: config.id,
+            cmp: this
+        });
+
+        var mainEl = $('<div>', { class: 'form-group', width: config.width || '100%' });
+
+        if (config.label != undefined) {
+            mainEl.append(
+                $('<label>', { for: config.id }).html(config.label)
+            );
+        }
+
+        var inputInitial = $('<input>', { type: 'date', id: config.idDateStart, class: 'form-control' });
+        var inputEnd = $('<input>', { type: 'date', id: config.idDateEnd, class: 'form-control' });
+
+        mainEl.append(inputInitial);
+        mainEl.append(inputEnd);
+
+        if (config.renderTo) {
+            $(config.renderTo).append(mainEl);
+        }
+
+        this.getValueInitial = function() {
+            var val = inputInitial.val();
+            return val == '' ? null : val;
+        }
+
+        this.getValueEnd = function(){
+            var val = inputEnd.val();
+            return val == '' ? null : val;
+        }
+
+        this.destroy = function() {
+            mainEl.remove();
         }
     },
 
@@ -82,7 +125,7 @@ var Cmp = {
 
         var mainEl = $('<div>', { class: 'form-group', width: config.width || '100%' });
 
-        if(config.label != undefined) {
+        if (config.label != undefined) {
             mainEl.append(
                 $('<label>', { for: config.id }).html(config.label)
             );
@@ -92,7 +135,7 @@ var Cmp = {
 
         mainEl.append(input);
 
-        if(config.renderTo) {
+        if (config.renderTo) {
             $(config.renderTo).append(mainEl);
         }
 
@@ -138,7 +181,7 @@ var Cmp = {
         table.append(thead);
         table.append(tbody);
 
-        if(config.renderTo) {
+        if (config.renderTo) {
             $(config.renderTo).append(table);
         }
 
@@ -190,12 +233,16 @@ var Cmp = {
         });
     },
 
-    createButton: function (config) {
+    createButton: function(config) {
         return new Cmp.button(config);
     },
 
     createInput: function(config) {
         return new Cmp.input(config);
+    },
+
+    createInputInterval: function(config) {
+        return new Cmp.inputIntervalDate(config);
     },
 
     createGrid: function(config) {
