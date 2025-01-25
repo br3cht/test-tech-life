@@ -62,6 +62,6 @@ class RastreamentoRepository
             return '';
         }
 
-        return "WHERE DATE data_ocorrencia BETWEEN' %{$dateStart}%' and '%{$dateEnd}%'";
+        return "WHERE DATE(data_ocorrencia) BETWEEN '{$dateStart}' AND '{$dateEnd}'";
     }
 }
