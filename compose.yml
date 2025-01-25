@@ -2,7 +2,7 @@ volumes:
   db:
 services:
   http:
-    container_name: space-imobi-http
+    container_name: life-http
     image: nginx:alpine
     restart: unless-stopped
     ports:
@@ -16,11 +16,11 @@ services:
       - life
   app:
     container_name: php-life
-    build: 
+    build:
       args:
         user: ${DOCKER_USER_ID}
         uid: ${DOCKER_GROUP_ID}
-        context: . 
+        context: .
         dockerfile: Dockerfile
     working_dir: /var/www
     volumes:
@@ -28,7 +28,7 @@ services:
     networks:
       - life
   db:
-    container_name: space-imobi-db
+    container_name: life-db
     image: mysql:8
     restart: unless-stopped
     mem_limit: 600M
