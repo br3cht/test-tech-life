@@ -16,10 +16,15 @@ class RastreamentoController
 
     public function getAllTRackings(): string
     {
+        $status = 'success';
+
         $data = $this->rastreamento->getTracking();
+        if (empty($data)) {
+            $status = 'failure';
+        }
 
         return json_encode([
-            'status' => 'success',
+            'status' => $status,
             'data' => $data
         ]);
     }
