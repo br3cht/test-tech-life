@@ -18,7 +18,7 @@ class Database
         $this->ip = 'localhost';
         $this->user = 'avaliacao';
         $this->password = 'root';
-        $this->database = '';
+        $this->database = 'life';
     }
 
     function __destruct()
