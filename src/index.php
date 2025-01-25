@@ -14,7 +14,7 @@ if (!empty($_REQUEST['mdl']) && !empty($_REQUEST['file'])) {
 
     if ($uri == '/rastreamento') {
         $controller = new RastreamentoController();
-        $data = $controller->getAllTRackings();
+        $data = $controller->getAllTRackings($_REQUEST);
 
         echo $data;
     } else {
