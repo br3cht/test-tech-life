@@ -33,15 +33,15 @@ Cmp.RelVeiculosAcimaVelocidade = function() {
                         width: 150
                     }, {
                         text: 'Data',
-                        field: 'vel_maxima',
+                        field: 'data_ocorrencia',
                         width: 150
                     }, {
                         text: 'Vel. Max.',
-                        field: 'vel_maxima',
+                        field: 'velocidade_maxima',
                         width: 150
                     } , {
                         text: 'Vel. Reg.',
-                        field: 'vel_registrada',
+                        field: 'velocidade_registrada',
                         width: 150
                     } , {
                         text: 'Diff. Vel',
