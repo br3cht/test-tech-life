@@ -10,7 +10,8 @@ para executar o projeto com docker vai ser preciso trocar o .env.example .env te
 sudo docker compose run build
 sudo docker compose up -d 
 ```
- 
+
+### PHP local
 Para executar o projeto localmente você deve possuir:
 
 - PHP com o módulo _pdo_mysql_ ativo
