@@ -4,10 +4,24 @@ Projeto para avaliação dos candidatos à vaga de desenvolvedor web.
 
 ## Requisitos
 
+### Docker
+para executar o projeto com docker vai ser preciso trocar o .env.example .env ter o docker instalado na maquina rodar os comandos:
+```
+sudo docker compose run build
+sudo docker compose up -d 
+```
+ 
 Para executar o projeto localmente você deve possuir:
 
 - PHP com o módulo _pdo_mysql_ ativo
 
+e precisará trocar os dados de conexão(src/php/Database.php) para utilizar seu banco de dados local 
+````
+$this->ip = 'localhost';
+$this->user = 'seu usuario'; 
+$this->password = 'senha do banco de dados';
+$this->database = 'base de dados';
+````
 
 ## Objetivo do candidato
 
