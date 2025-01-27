@@ -18,8 +18,8 @@ services:
     container_name: php-life
     build:
       args:
-        user: ${DOCKER_USER_ID}
-        uid: ${DOCKER_GROUP_ID}
+        user: ${DOCKER_USER_ID:-0}
+        uid: ${DOCKER_GROUP_ID:-0}
         context: .
         dockerfile: Dockerfile
     working_dir: /var/www
