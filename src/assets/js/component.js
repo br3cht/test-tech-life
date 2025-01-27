@@ -81,6 +81,8 @@ var Cmp = {
         });
 
         var mainEl = $('<div>', { class: 'form-group', width: config.width || '100%' });
+        var elementFormGroupInitialDate = $('<div>', {with: config.width || '100%' });
+        var elementFormGroupEndDate = $('<div>', { width: config.width || '100%' });
 
         if (config.label != undefined) {
             mainEl.append(
@@ -91,8 +93,17 @@ var Cmp = {
         var inputInitial = $('<input>', { type: 'date', id: config.idDateStart, class: 'form-control' });
         var inputEnd = $('<input>', { type: 'date', id: config.idDateEnd, class: 'form-control' });
 
-        mainEl.append(inputInitial);
-        mainEl.append(inputEnd);
+        elementFormGroupInitialDate.append(
+            $('<label>', { for: config.id, class:"form-label"}).html('De:')
+        )
+        elementFormGroupInitialDate.append(inputInitial);
+        elementFormGroupInitialDate.append(
+            $('<label>', { for: config.id, class:"form-label"}).html('Até:')
+        )
+        elementFormGroupEndDate.append(inputEnd);
+
+        mainEl.append(elementFormGroupInitialDate)
+        mainEl.append(elementFormGroupEndDate)
 
         if (config.renderTo) {
             $(config.renderTo).append(mainEl);

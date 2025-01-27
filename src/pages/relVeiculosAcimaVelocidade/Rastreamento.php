@@ -13,9 +13,9 @@
                         <div id="divInputIntervalo"></div>
                     </div>
                 </div>
-                <div id="divBtnConsultar"></div>
             </div>
         </div>
+        <div id="divBtnConsultar"></div>
     </div>
     <div id="divCmpGridVeiculo"></div>
 </div>
@@ -31,14 +31,13 @@
     }
 
     #divBtnConsultar {
-        margin-top: 32px;
         margin-left: 10px;
     }
 
     #divCmpGridVeiculo {
         display: inline-block;
         width: 100%;
-        margin-bottom: 20px;
+        margin-top: 40px;
     }
 </style>
 
